@@ -1,19 +1,24 @@
 #include<stdio.h>
+#include<unistd.h>
+#include<stdlib.h>
 
 int main(void)
 {
-	int i, j;
-	char s;
+	int hour, minute, second;
 
-	s = 'A';
-	for(i =1; i < 10; i++)
-	{
-		for(j = 0; j < i; j++)
-		{	
-			printf("%c ", s + j * 1);
+		for(hour = 0; hour < 24; hour++)
+		{
+			for(minute = 0; minute < 60; minute++)
+			{
+				for(second = 0; second < 60; second++)
+				{
+					printf("%d:%d:%d\n", hour, minute, second);
+					sleep(1);
+					system("clear");
+				}
+			}
 		}
-		printf("\n");
-	}
 
+		
 	return 0;
 }
