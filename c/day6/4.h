@@ -1,6 +1,6 @@
-#ifndef __TESH__H
-#define __TESH__H
+#ifndef __4__H
+#define __4__H
 
-int glob = 2;
+int glob = 8;
 
 #endif

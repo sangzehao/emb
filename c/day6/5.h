@@ -1,5 +1,5 @@
-#ifndef __TESH__H
-#define __TESH__H
+#ifndef __5__H
+#define __5__H
 
 int s = 1;
 

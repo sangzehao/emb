@@ -1,6 +1,4 @@
 #include<stdio.h>
-//#include"4.h"
-#include"5.h"
 #define BASEYEAR	1970
 #define SECONDYEAR (365 * 24 * 60 * 60UL)//无符号long
 #define MAX2NUM(x, y) (x) > (y) ? (x) : (y)
@@ -20,8 +18,6 @@ int main(void)
 //	printf("%c\n", CONN('h'));
 	SWAP(a, b);
 	printf("a:%d b:%d\n", a, b);
-//	printf("glob:%d\n", glob);
-	printf("ssh:%d\n", s);
 
 	return 0;
 }
