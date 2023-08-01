@@ -3,15 +3,16 @@
 int swap(int *a, int *b, int *c);
 
 int main(void){
-	int a, b, c, *p1, *p2, *p3;
+	int a, b, c;
+   //	*p1, *p2, *p3;
 	
-	p1 = &a;
+/*	p1 = &a;
 	p2 = &b;
 	p3 = &c;
-
-	scanf("%d %d %d", p1, p2, p3);
-	swap(p1, p2, p3);
-	printf("%d %d %d\n", *p1, *p2, *p3);
+*/
+	scanf("%d %d %d", &a, &b, &c);
+	swap(&a, &b, &c);
+	printf("%d %d %d\n", a, b, c);
 
 	return 0;
 }
