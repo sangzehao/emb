@@ -7,12 +7,17 @@ int main(void)
 	int *p;
 
 	p = arr;
-	show_arr()
+	show_arr(arr, 6);
 	printf("*p++:%d\n", *p++);//1
+	show_arr(arr, 6);
 	printf("(*p)++:%d\n", (*p)++);//2， 但是此时a[2]已经为3
+	show_arr(arr, 6);
 	printf("*(p++):%d\n", *(p++));//3
+	show_arr(arr, 6);
 	printf("++*p:%d\n", ++*p);//35
+	show_arr(arr, 6);
 	printf("*++p:%d\n", *++p);//5
+	show_arr(arr, 6);
 	
 	return 0;
 }

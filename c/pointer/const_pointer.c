@@ -7,16 +7,16 @@ int main(void)
 	char *const q = s;//指针常量，指针类型的常量，q 是指针，是常量；
 
 //	q++;
-	*q = 'w';
+//	*q = 'l';
 
-	printf("%c\n", *q);
+//	printf("%c\n", *q);
 
 	const char *p = s;//常量指针,常量的指针，所以*p只读；
 	
-	//p++;
+	p++;
 //	*p = "w";
 	
-//	printf("%c\n", *p);
+	printf("%c\n", *p);
 
 	return 0;
 }
