@@ -14,7 +14,8 @@ int main(void)
 {
 	struct Books c;
 	Book java;
-
+	
+	printf("%d\n", c.book_id);
 	strcpy(c.title,  "c语言");
 	strcpy(c.author, "Runoob");
 	strcpy(c.subject, "编程语言");
