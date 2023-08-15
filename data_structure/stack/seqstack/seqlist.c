@@ -46,6 +46,9 @@ int seqlist_add_first(seqlist *mylist, const void *data)
 	if(mylist->s_p == NULL)
 		return -1;
 	memcpy((char *)mylist->s_p + mylist->size, (char *)mylist->s_p, mylist->numb * mylist->size);
+//	memmove((char *)mylist->s_p + mylist->size, mylist->s_p, mylist->numb * mylist->size);
+
+	memcpy(mylist->s_p, data, mylist->size);
 	mylist->numb++;
 
 	return 0;
@@ -107,4 +110,30 @@ int seqlist_isempty(const seqlist *mylist)
 int seqlist_numb(const seqlist *mylist)
 {
 	return mylist->numb;
+}
+
+static int __ffind(seqlist *mylist, cmp p)
+{
+	return 1;
+}
+
+int seqlist_fetch(seqlist *mylist, void *key)
+{
+	memcpy(key, (char *)mylist->s_p, mylist->size);
+	
+	memcpy((char *)mylist->s_p, (char *)mylist->s_p + mylist->size, (mylist->numb - 1) * mylist->size);
+	mylist->numb--;
+	mylist->s_p = realloc(mylist->s_p, mylist->numb * mylist->size);
+	if(mylist->s_p == NULL)
+		return -1;
+
+	return 0;
+}
+
+void seqlist_destory(seqlist *mylist)
+{
+	free(mylist->s_p);
+	mylist->s_p = NULL;
+	free(mylist);
+	mylist = NULL;
 }

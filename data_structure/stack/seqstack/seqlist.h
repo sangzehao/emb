@@ -24,6 +24,10 @@ typedef int(*cmp)(const void *key1, const void *key2);
 
 int seqlist_del(seqlist *mylist, const void *key, cmp p);
 
+//取出数据并删除
+
+int seqlist_fetch(seqlist *mylist, void *key);
+
 int seqlist_chan(seqlist *mylist, const void *key, cmp p);
 
 void *seqlist_search(seqlist *mylist, const void *key, cmp p);
@@ -36,5 +40,7 @@ int seqlist_isempty(const seqlist *mylist);
 
 //是否超过容量
 int seqlist_numb(const seqlist *mylist);
+
+void seqlist_destory(seqlist *mylist);
 
 #endif

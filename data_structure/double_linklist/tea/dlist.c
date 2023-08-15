@@ -16,6 +16,7 @@ int dlisthead_init(dlist_t **head, int size)
 
 	return 0;
 }
+newnode = malloc(sizeof(struct node_st));
 
 static int __node_init(struct node_st **newnode, const void *data, int size)
 {

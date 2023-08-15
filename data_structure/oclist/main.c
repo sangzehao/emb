@@ -3,12 +3,12 @@
 #include<string.h>
 #include"oclist.h"
 
-int list_find(struct list_head *head, const void *data, struct data_st **mynode);
-
 struct data_st{
 	char *data;
 	struct list_head node;
 };
+
+int list_find(struct list_head *head, struct list_head **prev, const void *data, struct data_st **mydata);
 
 int main(int argc, char *argv[])
 {
@@ -67,41 +67,23 @@ int main(int argc, char *argv[])
 
 	//改
 	printf("\n******cha******\n");
-	pos = (&myhead)->next;
-	while(pos != &myhead)
+	i = list_find(&myhead, &prev, *(argv + 3), &mydata);
+	if(i == -1)
+		printf("no!\n");
+	else
 	{
-		mydata = list_entry(pos, struct data_st, node);
-		if(strcmp(mydata->data, *(argv + 3)) == 0)
+		//strcpy(mydata->data, "change");
+		mydata->data = "change";
+		list_for_each(pos, &myhead)
 		{
-			mydata->data = "change";
-			break;
+			mydata = list_entry(pos, struct data_st, node);
+			printf("%s ", (char *)mydata->data);
 		}
-		prev = pos;
-		pos = pos->next;
-	}
-	list_for_each(pos, &myhead)
-	{
-		mydata = list_entry(pos, struct data_st, node);
-		printf("%s ", (char *)mydata->data);
 	}
 
 //查	
 	printf("\n******cha******\n");
-/*	pos = (&myhead)->next;
-	while(pos != &myhead)
-	{
-		mydata = list_entry(pos, struct data_st, node);
-		if(strcmp(mydata->data, *(argv + 4)) == 0)
-		{
-			printf("%s ", (char *)mydata->data);
-			break;
-		}
-		prev = pos;
-		pos = pos->next;
-	}
-	*/
-
-	i = list_find(&myhead, *(argv + 3), pos);
+	i = list_find(&myhead, &prev, *(argv + 4), &mydata);
 	if(i == -1)
 		printf("no!\n");
 	else
@@ -111,22 +93,22 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-int list_find(struct list_head *head, const void *data, struct list_head *mynode)
+int list_find(struct list_head *head, struct list_head **prev, const void *data, struct data_st **mydata)
 {
 	struct list_head *cur;
-	struct list_head *prev;
-	struct data_st *mydata;
-
+//	struct data_st *mydata;
+	
+	*prev = head;
 	cur = head->next;
 
 	while(cur != head)
 	{
-		mydata = list_entry(cur, struct data_st, node);
-		if(strcmp(mydata->data, data) == 0)
-		{	
+		*mydata = list_entry(cur, struct data_st, node);
+		if(strcmp((*mydata)->data, data) == 0)
+		{
 			return 0;
 		}
-		prev = cur;
+		*prev = cur;
 		cur = cur->next;
 	}
 
