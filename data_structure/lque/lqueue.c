@@ -17,7 +17,6 @@ int queue_init(lqueue **myque, int size)
 
 	return 0;
 }
-
 int queue_enq(lqueue *myque, const void *data)
 {
 	struct node_st *mynode;
