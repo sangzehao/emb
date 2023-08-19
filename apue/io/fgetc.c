@@ -1,15 +1,16 @@
 #include<stdio.h>
+#include<unistd.h>
 
 int main(int argc, char *argv[])
 {
-	FILE *fp = NULL;
-	int c;
-
 	if(argc < 2)
 		return -1;
+
+	FILE *fp;
+	int c;
 	
 	fp = fopen(argv[1], "r");
-
+	
 	if(NULL == fp)
 		return -1;
 
@@ -23,9 +24,12 @@ int main(int argc, char *argv[])
 			break;
 		}
 		fputc(c, stdout);
+		sleep(1);//休眠一秒
+		fflush(stdout);//刷新缓存区
 	}
 
 	fclose(fp);
+//	fclose(wfp);
 
 	return 0;
 }
