@@ -5,7 +5,7 @@ int main (void)
 	int num1, num2, mid;
 	int i ;
 
-	printf("输入两个数：");
+	printf("输入两个数：")
 	scanf("%d %d", &num1, &num2);
 	mid = num1;
 	for (i = 1; i<num2; i++){
