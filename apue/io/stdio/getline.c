@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
 	while(1)
 	{
+		printf("size:%ld\n", size);
 		if( -1 == getline(&lineptr, &size, fp))
 			break;
 		fputs(lineptr, stdout);

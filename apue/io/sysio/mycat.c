@@ -5,7 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define BUFSIZE 32
+#define BUFSIZE 2
 
 int main(int argc, char *argv[])
 {
