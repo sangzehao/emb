@@ -16,10 +16,13 @@ int main(int argc, char *argv[])
 	char buf[BUFSIZE];
 	int cnt;
 
-	fp = open(argv[1], O_RDONLY);
+	fp = open(argv[1], O_RDONLY);//可以打开目录
+	//fp = open(argv[1], O_WRONLY, 0666);//可以打开目录，但不能写
 	if(-1 == fp)
+	{
+		perror("open()");
 		return -1;
-	
+	}
 	while(1)
 	{
 		memset(buf, 0, BUFSIZE);

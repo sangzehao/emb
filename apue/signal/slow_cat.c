@@ -19,6 +19,7 @@ int main(int argc, char *argv[]/*char **argv*/)
 	int fd;
 	char buf[BUFSIZE] = {};
 	int cnt;
+	off_t currpos;
 
 	if (argc < 2)
 		return 1;
@@ -46,6 +47,8 @@ int main(int argc, char *argv[]/*char **argv*/)
 		// 重复使用buf，建议buf清理干净，防止有脏数据	
 		memset(buf, 0, BUFSIZE);
 		cnt = read(fd, buf, CPS);
+		currpos = lseek(fd, 0, SEEK_CUR);//偏移量
+		printf("*************currpos:%ld\n", currpos);
 		if (0 == cnt) {
 			// 读完了
 			break;

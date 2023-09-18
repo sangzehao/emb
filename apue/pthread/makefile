@@ -1,0 +1,2 @@
+cfflag+=-pthread
+
