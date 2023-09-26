@@ -219,7 +219,7 @@ void threadpool_destroy(threadpool_t *pool)
 	pthread_join(pool->admin_tid, NULL);
 
 	for(i = 0; i < pool->cur_live_thr_num; i++)
-		pthread_cond_broadcast(&pool->task_queue_not_empty);//怎么传这么多次
+		pthread_cond_broadcast(&pool->task_queue_not_empty);//怎么传这么多次,因为传一次，一个抢到
 
 	for(i = 0; i < pool->max_thr_num; i++)
 	{

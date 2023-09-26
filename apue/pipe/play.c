@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	{
 		close(pfd[1]);
 		dup2(pfd[0], 0);
-	//	execlp("mplayer", "mplayer", "-", NULL);
+		execlp("mplayer", "mplayer", "-", NULL);
 		_write(pfd[0], 1);
 		exit(0);
 	}
