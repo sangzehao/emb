@@ -13,6 +13,9 @@ int main(void)
 
 	strncpy(s, "hello", 20);
 	puts(s);
+	
+	delete p;
+	delete[] s;
 
 	return 0;
 }
